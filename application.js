@@ -108,3 +108,20 @@ $(document).ready(function(){
     })
   });
 });
+
+
+
+// $.ajax({
+//      url: "http://localhost:3000/stories/15/in_range",
+//      type: "GET",
+//      data: {search:
+//               {lat: 2,
+//                 lng: 3}
+//             },
+//      success: function(data, status){
+//        console.log(data, status)
+//      },
+//      failure: function(data, status){
+//        console.log(data, status)
+//      }
+//     });

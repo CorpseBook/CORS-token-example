@@ -112,6 +112,8 @@ corpseFaceApp.controller('requestCtrl', ['$scope', '$http', '$window', function 
             console.log('error');
           });
       }
+
+
 }]);
 
 corpseFaceApp.factory('authInterceptor', function ($rootScope, $q, $window) {
