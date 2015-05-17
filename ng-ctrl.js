@@ -48,7 +48,6 @@ corpseFaceApp.controller('requestCtrl', ['$scope', '$http', '$window', function 
     $scope.signIn = function (user)
     {
         var user = {user: user}
-        console.log(user)
         var config = {
           method: 'POST',
           url: 'http://localhost:3000/token',
@@ -63,8 +62,24 @@ corpseFaceApp.controller('requestCtrl', ['$scope', '$http', '$window', function 
         .success(function (data){
           console.log(data);
           $window.sessionStorage.token = data.token
-          console.log($window.sessionStorage.token)
         });
+    }
+
+    $scope.signOut = function() {
+      var config = {
+        method: 'POST',
+        url: 'http://localhost:3000/sign_out',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      }
+      $http(config)
+      .success(function(data){
+        console.log(data)
+        delete $window.sessionStorage.token
+        // render login form
+      });
     }
 
     // this is a method for posting story objects to the server - it is currently getting CORS errors
